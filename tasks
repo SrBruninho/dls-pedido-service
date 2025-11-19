@@ -1,0 +1,30 @@
+1) pedido-service — Tarefas
+Core
+
+ Criar endpoint POST /orders com validação forte (Bean Validation + custom errors).
+
+ Persistir pedido no PostgreSQL usando JPA.
+
+ Publicar evento order.created no Kafka com idempotência.
+
+ Implementar correlation-id (propagar ID no header de message).
+
+Resiliência e Boas Práticas
+
+ Implementar retry + backoff para falha no publish.
+
+ Implementar controller advice com RFC7807 (problem+json).
+
+ Versionamento de API (/api/v1/...).
+
+Observabilidade
+
+ Adicionar logs estruturados (JSON).
+
+ Expor métricas via Actuator /actuator/prometheus.
+
+Testes
+
+ Criar testes com Testcontainers (PostgreSQL + Kafka).
+
+ Testar fluxo completo: criar pedido → evento publicado
