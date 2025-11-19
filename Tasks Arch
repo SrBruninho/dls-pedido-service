@@ -1,0 +1,106 @@
+🟥 4) Tarefas Gerais (Infra, DevOps, Observabilidade)
+Docker & Compose
+
+ Montar docker-compose com:
+
+Kafka
+
+Zookeeper
+
+Postgres
+
+Mongo
+
+MailHog
+
+ Configurar rede e env vars para cada microservice.
+
+Monitoring
+
+ Subir Prometheus + Grafana.
+
+ Criar dashboard para:
+
+throughput de mensagens
+
+erros por serviço
+
+tempo de processamento
+
+Tracing distribuído
+
+ Integrar OpenTelemetry + Jaeger.
+
+ Acompanhar trace completo:
+
+pedido-service → prazo-service → notificacao-service.
+
+🧠 5) System Design Task (nível internacional)
+
+Essa é a task que empresas lá fora amam.
+
+📌 System Design: “Delivery ETA Platform”
+
+Você deve projetar um sistema que:
+
+Recebe 50k pedidos por minuto
+
+Calcula ETA (Estimated Time of Arrival) em tempo real
+
+Notifica clientes por e-mail ou push
+
+Garante:
+
+escalabilidade horizontal
+
+idempotência
+
+tolerância a falhas
+
+reprocessamento
+
+consistência eventual
+
+Entregáveis da Task de System Design
+
+ Desenhar arquitetura completa (use o Mermaid)
+
+ Descrever escolha do:
+
+banco (OLTP → PostgreSQL, precálculo → Redis, histórico → MongoDB)
+
+mensageria (Kafka)
+
+particionamento das mensagens
+
+métricas e observabilidade
+
+ Explicar estratégias de:
+
+idempotência
+
+backpressure
+
+DLQ
+
+segurança (JWT + rate limit)
+
+versionamento de schemas (Avro ou JSON Schema Registry)
+
+ Criar “sequence diagram” do fluxo completo:
+
+Pedido → Kafka
+
+Prazo (ETA) calculado → Kafka
+
+Notificação enviada → Cliente
+
+ Descrever trade-offs (muito importante em entrevistas)
+
+Consistência vs. disponibilidade (CAP)
+
+At-least-once vs exactly-once
+
+PostgreSQL vs MongoDB
+
+Poll vs Push
